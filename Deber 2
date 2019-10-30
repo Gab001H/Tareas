@@ -1,0 +1,142 @@
+#include <iostream>
+#include <math.h>
+#include <cmath>
+using namespace std;
+int main()
+{
+    int opt;
+    bool fnsh = false;
+    cout << "Deber 2. CRISTIAN DIAS." << endl;
+    do
+    {
+        cout <<"\nEscoja una de las opciones o ingrese cualquier valor diferente para salir" << endl;
+        cout <<"\n1. Encontrar el mayor y el menor al ingresar una lista de numeros." << endl;
+        cout <<"2. Sumatorias." << endl;
+        cout <<"3. Aproximacion de pi."<< endl;
+        cout<<"4. Contador."<<endl;
+        cout<<"5. Alumos Aprobados y reprobados\n"<<endl;
+        cin >> opt;
+        switch (opt)
+        {
+            case 1:{
+                double a, b, c,d;
+                cout << " \nIngresa los numeros de su lista, 0 para terminar  (Enter para cada numero): " << endl ;
+                cin >> a;
+                b=a;
+                c=0;
+                while (a!=0){
+                    if (a>c)
+                        c=a;
+                    if (a<b)
+                        b=a;
+                    cin >> a;}
+                cout << "El menor de su lista de numeros es:  " << b << endl;
+                cout << "El mayor de su lista de numeros es:  " << c << endl;}
+            break;
+            case 2:{
+                    int a,b,c,d;
+                cout << "\nIngrese 1, si quiere que su sumatorio sea (Sum(2i)-1)"<< endl;
+                cout << "Ingrese 2, si quiere que su sumatorio sea Sum(i!)"<< endl;
+                cout << "Ingrese 0 para terminar\n"<<endl;
+                cin  >> a;
+                while (a!=0){
+                if (a==1){
+                    cout << "Ingrese un valor de n para calcular el sumatorio 1: ";
+                    cin >> b;
+                    c=0;
+                    for(int i=1;i<=b;i++){
+                        d=2*i;
+                        c+=d;
+                    }
+                    cout <<"\nLa sumatoria es: " <<c -1<<endl;
+                }
+                if(a==2){
+                    cout << "Ingrese un valor de n para calcular el sumatorio 2: ";
+                    cin >> b;
+                    d=0;
+                    c=1;
+                    for(int i=1;i<=b;i++){
+                        c*=i;
+                        d+=c;}
+                cout <<"\nLa sumatoria es: " <<d <<endl;}
+                cout << "\nIngrese 1, si quiere que su sumatorio sea (Sum(2i)-1)"<< endl;
+                cout << "Ingrese 2, si quiere que su sumatorio sea Sum(i!)\n"<< endl;
+                cin  >> a;}}
+            break;
+            case 3:{
+                int a ;
+                double b,c,d;
+                const double pi=3.14159265;
+                cout << "\nPara salir del programa ingrese 0.\n"<<endl;
+                cout << "Ingrese un valor para aproximar pi: ";
+                cin >> a;
+                while(a>0){
+                c=0;
+                for(int i=1;i<=a;i++){
+                b=(double)(6/pow(i,2));
+                c+=b;
+                }
+                d=pi-sqrt(c);
+                cout <<"El error respecto a pi es: "<<d;
+                cout <<"\nEl valor correspondiente a la aproximacion es de: "<< sqrt(c)<< endl;
+                cout << "\nIngrese un valor para aproximar pi: ";
+                cin >> a;
+            }}
+            break;
+            case 4:{
+            int  n,i,j=0,r,b=1,d=0,l=0;
+            cout << "Ingrese un numero entero positivo (cualquier otro valor para cancelar):  ";
+            cin >> n;
+            while (n>0){
+            for (i=1; i<=n; i++) {
+                if (i % 3 == 0){
+                    j++;}}
+            cout << "\nExisten un total de " << j << " numeros multiplos del 3."<< endl;
+            int c=n;
+            for(n=1;n!=c+1;n++){
+                r=2;
+                b=1;
+                for(r=2;r<n && b!=0;r++){
+                b=(n%r);}
+                if(b!=0){
+                d+=1;}}
+            cout << "Existen un total de " << d << " numeros primos."<< endl;
+            for(i=1;i<=c;i++){
+                if(i%2!=0)l++;}
+            cout << "Existen un total de " << l << " numeros impares.\n"<< endl;
+            cout << "\nIngrese un numero entero positivo: ";
+            cin >> n;
+            }}
+            break;
+            case 5:{
+            int e=0,f=0,g=0, i=1;
+            char a,b,c,d;
+            d= 'A';
+            for(i;i<=5;i++){
+                cout <<"\nAlumno "<<i<<endl;
+                cout<< "\nAprueba(A) o Reprueba(R) primer examen: ";
+                cin>>a;
+                cout<< "Aprueba(A) o Reprueba(R) segundo examen: ";
+                cin>>b;
+                cout<< "Aprueba(A) o Reprueba(R) tercer examen: ";
+                cin>>c;
+                if(a==d && b==d && c==d)
+                e++;
+                if(a==d) f++;
+                else{
+                if(b==d) f++;
+                else{
+                if (c==d) f++;}}
+                if(c==d)
+                g++;}
+            cout<< "\nNumero de estudiantes que aprobo todos los examenes: "<<e<<"\tPorcentaje de estudiantes que aprobo todos los examenes: "<<(float)e/5*100<<"\%"<<endl;
+            cout<< "Numero de estudiantes que aprobo al menos un examen: "<<f<<"\tPorcentaje de estudiantes que aprobo al menos un examen: "<<(float)f/5*100<<"\%"<<endl;
+            cout<< "Numero de estudiantes que aprobo el ultimo examen: "<<g<<"\tPorcentaje de estudiantes que aprobo el ultimo examen: "<<(float)g/5*100<<"\%"<<endl;}
+            break;
+            default:
+                cout << " Gracias por usar el programa " << endl ;
+                fnsh = true ;
+        }
+    }while (!fnsh);
+    return 0;
+}
